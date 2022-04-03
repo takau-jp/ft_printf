@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/04/03 09:20:15 by stanaka          ###   ########.fr        #
+#    Updated: 2022/04/03 10:06:33 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS	+= ${addprefix ${LIBDIR}/, ft_abs.c ft_abs_intmax.c ft_atoi.c ft_isdigit.c 
 			 ft_putchar.c ft_putstr.c ft_putstrl.c ft_putnbr.c ft_strchr.c ft_strlen.c ft_strcmp.c ft_strnlen.c}
 OBJDIR	= ./objs
 OBJS	= ${addprefix ${OBJDIR}/, ${notdir ${SRCS:.c=.o}}}
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
