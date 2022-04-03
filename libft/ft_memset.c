@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_width_space.c                               :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 00:14:52 by stanaka           #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:43 by stanaka          ###   ########.fr       */
+/*   Created: 2022/01/08 18:55:36 by stanaka           #+#    #+#             */
+/*   Updated: 2022/01/08 18:55:39 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stddef.h>
 
-int	ft_put_width_space(t_conv *conv, size_t len)
+void	*ft_memset(void *buf, int ch, size_t n)
 {
-	int	res;
+	unsigned char	*tmp;
 
-	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar(' ');
-		conv->width--;
-	}
-	return (res);
-}
-
-int	ft_put_width_zero(t_conv *conv, size_t len)
-{
-	int	res;
-
-	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar('0');
-		conv->width--;
-	}
-	return (res);
+	tmp = (unsigned char *)buf;
+	while (n--)
+		*tmp++ = (unsigned char)ch;
+	return (buf);
 }

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_width_space.c                               :+:      :+:    :+:   */
+/*   ft_conv_percent.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 00:14:52 by stanaka           #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:43 by stanaka          ###   ########.fr       */
+/*   Created: 2022/02/11 09:33:15 by stanaka           #+#    #+#             */
+/*   Updated: 2022/02/11 13:20:22 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_put_width_space(t_conv *conv, size_t len)
+int	ft_conv_percent(t_conv *conv)
 {
 	int	res;
 
 	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar(' ');
-		conv->width--;
-	}
-	return (res);
-}
-
-int	ft_put_width_zero(t_conv *conv, size_t len)
-{
-	int	res;
-
-	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar('0');
-		conv->width--;
-	}
+	if (!conv->space_flags)
+		res += ft_put_width_space(conv, 1);
+	if (conv->space_flags == '0')
+		res += ft_put_width_zero(conv, 1);
+	res += ft_putchar('%');
+	if (conv->space_flags == '-')
+		res += ft_put_width_space(conv, 1);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:22 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/16 20:02:11 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/01/08 17:35:31 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int	ft_put_d(t_conv *conv, va_list *ap)
 	else if (len < conv->precision)
 		padding = conv->precision - len;
 	len += padding;
+	res = 0;
 	res = ft_put_width_space(conv, len);
 	if (conv->has_precision && conv->precision == 0 && d == 0)
-		return (0);
+		return (res);
 	return (res + ft_put_num(d, padding));
 }
 

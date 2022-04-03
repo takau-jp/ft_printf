@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_width_space.c                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 00:14:52 by stanaka           #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:43 by stanaka          ###   ########.fr       */
+/*   Created: 2022/01/26 15:50:28 by stanaka           #+#    #+#             */
+/*   Updated: 2022/01/27 15:56:02 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_put_width_space(t_conv *conv, size_t len)
+int	ft_putnbr(int n)
 {
-	int	res;
+	unsigned int	num;
+	int				res;
 
+	num = n;
 	res = 0;
-	while ((size_t)conv->width > len)
+	if (n < 0)
 	{
-		res += ft_putchar(' ');
-		conv->width--;
+		res += write(1, "-", 1);
+		num = ft_abs(n);
 	}
-	return (res);
-}
-
-int	ft_put_width_zero(t_conv *conv, size_t len)
-{
-	int	res;
-
-	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar('0');
-		conv->width--;
-	}
+	if (num >= 10)
+		res += ft_putnbr(num / 10);
+	res += write(1, &"0123456789"[num % 10], 1);
 	return (res);
 }

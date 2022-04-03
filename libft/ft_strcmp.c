@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_width_space.c                               :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 00:14:52 by stanaka           #+#    #+#             */
-/*   Updated: 2022/01/13 20:41:43 by stanaka          ###   ########.fr       */
+/*   Created: 2022/02/13 08:25:13 by stanaka           #+#    #+#             */
+/*   Updated: 2022/02/13 08:27:40 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stddef.h>
 
-int	ft_put_width_space(t_conv *conv, size_t len)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	res;
+	size_t	i;
 
-	res = 0;
-	while ((size_t)conv->width > len)
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		res += ft_putchar(' ');
-		conv->width--;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (res);
-}
-
-int	ft_put_width_zero(t_conv *conv, size_t len)
-{
-	int	res;
-
-	res = 0;
-	while ((size_t)conv->width > len)
-	{
-		res += ft_putchar('0');
-		conv->width--;
-	}
-	return (res);
+	return (0);
 }
