@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:48:24 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 20:39:45 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:58:28 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_conv_u_len(t_conv *conv, va_list *ap)
 	int					len;
 	int					padding;
 
-	ft_conv_arg(conv, ap);
 	if (!ft_conv_ulen(conv, ap, &num))
 		return (0);
 	len = ft_get_digits_uintmax(num, 10);

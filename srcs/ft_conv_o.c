@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 21:03:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 20:41:28 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:52:51 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_conv_o(t_conv *conv, va_list *ap)
 	int				len;
 	int				padding;
 
-	ft_conv_arg(conv, ap);
 	num = va_arg(*ap, unsigned int);
 	len = ft_get_digits_uint(num, 8);
 	if (conv->has_prec && conv->prec == 0 && num == 0 && !conv->hash_flag)

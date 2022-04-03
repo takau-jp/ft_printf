@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:22 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 19:16:15 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:51:37 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_conv_d(t_conv *conv, va_list *ap)
 	int	len;
 	int	padding;
 
-	ft_conv_arg(conv, ap);
 	d = va_arg(*ap, int);
 	len = ft_get_digits(d, 10);
 	if (d >= 0 && conv->sign_flags)

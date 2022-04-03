@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:56:46 by stanaka           #+#    #+#             */
-/*   Updated: 2022/04/02 23:46:02 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:52:27 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_conv_n_len2(int res, t_conv *conv, va_list *ap);
 
 int	ft_conv_n_len(int res, t_conv *conv, va_list *ap)
 {
-	ft_conv_arg(conv, ap);
 	if (conv->length[0] == 'h')
 		ft_conv_n_len1(res, conv, ap);
 	else

@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:59:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 20:42:17 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:58:20 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_conv_s(t_conv *conv, va_list *ap)
 	size_t	len;
 	char	*s;
 
-	ft_conv_arg(conv, ap);
 	s = va_arg(*ap, char *);
 	if (!s)
 		s = "(null)";

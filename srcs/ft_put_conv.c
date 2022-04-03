@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 22:22:44 by stanaka           #+#    #+#             */
-/*   Updated: 2022/04/02 23:52:37 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:57:17 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_put_float_conv(t_conv *conv, va_list *ap);
 
 int	ft_put_conversion(t_conv *conv, va_list *ap, int res)
 {
+	ft_conv_arg(conv, ap);
 	if (ft_strchr("cs\%n", conv->c))
 		return (ft_put_etc_conv(conv, ap, res));
 	if (ft_strchr("pdDiuxXo", conv->c))
@@ -41,7 +42,7 @@ int	ft_put_etc_conv(t_conv *conv, va_list *ap, int res)
 	if (conv->c == '%')
 		return (ft_conv_percent(conv));
 	if (conv->c == 'n')
-		return (ft_conv_n(res, conv, ap));
+		return (ft_conv_n(res, ap));
 	return (0);
 }
 

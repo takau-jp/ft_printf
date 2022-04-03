@@ -90,7 +90,7 @@ int				print_mydouble_ge(t_conv *conv, t_mydb *mydouble, int exponent);
 int				ft_conv_gf(t_conv *conv, double num);
 int				ft_put_gf(t_conv *conv, t_mydb *mydouble, int len);
 int				print_mydouble_gf(t_conv *conv, t_mydb *mydouble);
-int				ft_conv_n(int res, t_conv *conv, va_list *ap);
+int				ft_conv_n(int res, va_list *ap);
 int				ft_put_lower_hexa(unsigned int num, int padding);
 int				ft_put_upper_hexa(unsigned int num, int padding);
 int				ft_conv_e(t_conv *conv, va_list *ap);

@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:35:48 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 18:52:26 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:51:09 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_conv_c(t_conv *conv, va_list *ap)
 	int	c;
 
 	res = 0;
-	ft_conv_arg(conv, ap);
 	c = va_arg(*ap, int);
 	if (!conv->space_flags)
 		res += ft_put_width_space(conv, 1);

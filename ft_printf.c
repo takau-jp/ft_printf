@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:37 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/22 11:14:09 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:49:41 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	ft_printf(const char *restrict format, ...)
 			if (!itr)
 				return (-1);
 			res += ft_put_conversion(&conv, &ap, res);
-			continue ;
 		}
-		res += ft_putchar(*itr++);
+		else
+			res += ft_putchar(*itr++);
 	}
 	va_end(ap);
 	return (res);

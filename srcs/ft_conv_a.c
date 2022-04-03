@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:38:51 by stanaka           #+#    #+#             */
-/*   Updated: 2022/02/20 18:38:30 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/04/03 13:51:00 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_conv_a(t_conv *conv, va_list *ap)
 	t_mydb	mydouble;
 	int		exponent;
 
-	ft_conv_arg(conv, ap);
 	if (conv->has_prec == false)
 		conv->prec = 8;
 	num = va_arg(*ap, double);
