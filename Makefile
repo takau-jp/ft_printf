@@ -6,27 +6,53 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/04/03 10:06:33 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/22 19:41:40 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
+
+LIBFT_DIR	=	./libft
+LIBFT	=	$(LIBFT_DIR)/libft.a
+
 SRCDIR	= ./srcs
-LIBDIR	= ./libft
+BONUS_SRCDIR = ./bonus
+
 SRCS	= ft_printf.c
-SRCS	+= ${addprefix ${SRCDIR}/, ft_array_calc.c ft_conv_a.c ft_conv_a2.c ft_conv_a3.c ft_conv_c.c ft_conv_d.c ft_conv_d_len.c ft_conv_e.c \
-			 ft_conv_e2.c ft_conv_e3.c ft_conv_e4.c ft_conv_o.c ft_conv_o_len.c ft_conv_p.c ft_conv_percent.c ft_conv_u.c ft_conv_u_len.c \
-			 ft_conv_utils.c ft_conv_s.c ft_conv_x.c ft_conv_x_len.c \
-			 ft_conv_f.c ft_conv_f2.c ft_conv_g.c ft_conv_ge.c ft_conv_ge2.c ft_conv_ge3.c ft_conv_gf.c ft_conv_gf2.c ft_double_utils.c ft_double_utils2.c ft_double_utils3.c \
-			 ft_conv_n.c ft_conv_n_len.c ft_get_digits.c ft_get_digits_long.c ft_hex_array_calc.c ft_put_conv.c ft_put_width_space.c ft_read_conv.c}
-SRCS	+= ${addprefix ${LIBDIR}/, ft_abs.c ft_abs_intmax.c ft_atoi.c ft_isdigit.c ft_isspace.c ft_labs.c ft_memcpy.c ft_memset.c\
-			 ft_putchar.c ft_putstr.c ft_putstrl.c ft_putnbr.c ft_strchr.c ft_strlen.c ft_strcmp.c ft_strnlen.c}
+SRCS	+= ${addprefix ${SRCDIR}/, ${addsuffix .c, ft_put_conv ft_join_utils ft_join_utils2 ft_abs ft_strchr ft_strlen ft_memcpy ft_memset}}
+BONUS_SRCS	= ft_printf_bonus.c
+BONUS_SRCS	+= ${addprefix ${BONUS_SRCDIR}/, ${addsuffix _bonus.c, ft_array_calc ft_conv_a ft_conv_a2 ft_conv_a3 ft_conv_c ft_conv_d ft_conv_d_len ft_conv_e \
+			 ft_conv_e2 ft_conv_e3 ft_conv_e4 ft_conv_o ft_conv_o_len ft_conv_p ft_conv_percent ft_conv_u ft_conv_u_len \
+			 ft_conv_utils ft_conv_s ft_conv_x ft_conv_x_len \
+			 ft_conv_f ft_conv_f2 ft_conv_g ft_conv_ge ft_conv_ge2 ft_conv_ge3 ft_conv_gf ft_conv_gf2 ft_double_utils ft_double_utils2 ft_double_utils3 \
+			 ft_conv_n ft_conv_n_len ft_get_digits ft_get_digits_long ft_hex_array_calc ft_put_conv ft_put_width_space ft_read_conv ft_read_conv_utils \
+			 ft_join_utils ft_print ft_print_buf \
+			 ft_abs_intmax ft_putchar ft_putstr ft_putstrl ft_putnbr ft_strcmp}}
+
 OBJDIR	= ./objs
-OBJS	= ${addprefix ${OBJDIR}/, ${notdir ${SRCS:.c=.o}}}
+M_OBJS	= ${addprefix ${OBJDIR}/, ${notdir ${SRCS:.c=.o}}}
+B_OBJS	= ${addprefix ${OBJDIR}/, ${notdir ${BONUS_SRCS:.c=.o}}}
+
+ifdef BONUS
+OBJS = $(B_OBJS)
+OBJS_TO_DEL	=	$(M_OBJS)
+else
+OBJS = $(M_OBJS)
+OBJS_TO_DEL	=	$(B_OBJS)
+endif
+
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
-$(NAME): $(OBJS)
+${MAKE_BEFORE}:
+ifdef BONUS
+	@if [ -e "$(NAME)" ] && [ "$(shell nm ./libftprintf.a | grep _bonus)" == "" ]; then rm -f $(NAME) ; fi;
+else
+	@if [ -e "$(NAME)" ] && [ "$(shell nm ./libftprintf.a | grep _bonus)" != "" ]; then rm -f $(NAME) ; fi;
+endif
+
+$(NAME): $(OBJS) $(LIBFT)
+	cp $(LIBFT) ./$(NAME)
 	ar src $(NAME) $(OBJS)
 
 ${OBJDIR}/%.o: %.c
@@ -36,22 +62,28 @@ ${OBJDIR}/%.o: %.c
 ${OBJDIR}/%.o: ${SRCDIR}/%.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-${OBJDIR}/%.o: ${LIBDIR}/%.c
+${OBJDIR}/%.o: ${BONUS_SRCDIR}/%.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-all: $(NAME)
+all:
+	$(NAME)
 
-bonus: all
+${LIBFT}:
+	@make -C $(LIBFT_DIR)
+
+bonus:
+	@make BONUS=1
 
 .c.o :
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(M_OBJS) $(B_OBJS)
 
 fclean: clean
+	@make -C $(LIBFT_DIR) fclean
 	rm -rf $(NAME) ${OBJDIR}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

@@ -6,55 +6,97 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:37 by stanaka           #+#    #+#             */
-/*   Updated: 2022/04/03 13:49:41 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/22 13:48:15 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_conversion(t_conv *conv);
+int		ft_print(va_list *ap, char *itr);
+void	buf_init(t_print *print);
+char	*read_format(va_list *ap, char *itr, t_print *print);
+void	print_buf(t_print *print);
 
-int	ft_printf(const char *restrict format, ...)
+int	ft_printf(const char *format, ...)
 {
 	char	*itr;
 	int		res;
-	t_conv	conv;
 	va_list	ap;
 
-	res = 0;
 	itr = (char *)format;
 	if (!itr)
 		return (-1);
 	va_start(ap, format);
-	while (*itr)
-	{
-		if (*itr == '%')
-		{
-			ft_init_conversion(&conv);
-			itr = ft_read_conversion(&conv, ++itr);
-			if (!itr)
-				return (-1);
-			res += ft_put_conversion(&conv, &ap, res);
-		}
-		else
-			res += ft_putchar(*itr++);
-	}
+	res = ft_print(&ap, itr);
 	va_end(ap);
 	return (res);
 }
 
-void	ft_init_conversion(t_conv *conv)
+int	ft_print(va_list *ap, char *itr)
 {
-	conv->hash_flag = 0;
-	conv->space_flags = 0;
-	conv->sign_flags = 0;
-	conv->width = 0;
-	conv->width_arg = 0;
-	conv->has_prec = false;
-	conv->prec = 0;
-	conv->prec_arg = 0;
-	conv->length[0] = 0;
-	conv->length[1] = 0;
-	conv->length[2] = '\0';
-	conv->c = 0;
+	t_print	print;
+
+	ft_memset(&print, 0, sizeof(print));
+	while (*itr)
+	{
+		buf_init(&print);
+		if (!print.buf)
+			return (-1);
+		itr = read_format(ap, itr, &print);
+		if (!itr)
+			return (-1);
+		print_buf(&print);
+		free(print.buf);
+		if (print.res == -1)
+			return (-1);
+	}
+	return (print.res);
+}
+
+void	buf_init(t_print *print)
+{
+	print->buf = malloc(sizeof(char) * 1);
+	if (!print->buf)
+		return ;
+	print->buf[0] = '\0';
+}
+
+char	*read_format(va_list *ap, char *itr, t_print *print)
+{
+	while (*itr && *itr != '%')
+	{
+		print->buf = ft_join_char(print->buf, *itr++);
+		if (!print->buf)
+			return (NULL);
+	}
+	if (*itr == '%')
+	{
+		if (!ft_strchr(CONV, *++itr))
+		{
+			free(print->buf);
+			return (NULL);
+		}
+		print->buf = ft_put_conversion(print, *itr++, ap);
+		if (!print->buf)
+			return (NULL);
+	}
+	return (itr);
+}
+
+void	print_buf(t_print *print)
+{
+	size_t	check_res;
+
+	check_res = ft_strlen(print->buf);
+	if (check_res + print->null_char >= INT_MAX)
+	{
+		print->res = -1;
+		return ;
+	}
+	print->res += write(1, print->buf, check_res);
+	if (print->null_char)
+	{
+		print->res += write(1, "\0", 1);
+		print->null_char = false;
+	}
 }

@@ -6,81 +6,60 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 22:22:44 by stanaka           #+#    #+#             */
-/*   Updated: 2022/04/03 13:57:17 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/22 08:10:47 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_put_etc_conv(t_conv *conv, va_list *ap, int res);
-int	ft_put_decimal_conv(t_conv *conv, va_list *ap);
-int	ft_put_float_conv(t_conv *conv, va_list *ap);
+char	*ft_conv_c(t_print	*print, va_list *ap);
+char	*ft_conv_s(char *buf, va_list *ap);
 
-int	ft_put_conversion(t_conv *conv, va_list *ap, int res)
+char	*ft_put_conversion(t_print	*print, char conv, va_list *ap)
 {
-	ft_conv_arg(conv, ap);
-	if (ft_strchr("cs\%n", conv->c))
-		return (ft_put_etc_conv(conv, ap, res));
-	if (ft_strchr("pdDiuxXo", conv->c))
-		return (ft_put_decimal_conv(conv, ap));
-	if (ft_strchr("fFeEgGaA", conv->c))
-		return (ft_put_float_conv(conv, ap));
-	return (0);
-}
-
-int	ft_put_etc_conv(t_conv *conv, va_list *ap, int res)
-{
-	if (conv->length[0])
+	if (conv == 'c')
+		return (ft_conv_c(print, ap));
+	if (conv == 's')
+		return (ft_conv_s(print->buf, ap));
+	if (conv == '%')
+		return (ft_join_char(print->buf, '%'));
+	if (conv == 'p')
 	{
-		if (conv->c == 'n')
-			return (ft_conv_n_len(res, conv, ap));
+		print->buf = ft_strjoin_free(print->buf, "0x");
+		if (!print->buf)
+			return (NULL);
+		return (ft_join_address(print->buf, va_arg(*ap, unsigned long)));
 	}
-	if (conv->c == 'c')
-		return (ft_conv_c(conv, ap));
-	if (conv->c == 's')
-		return (ft_conv_s(conv, ap));
-	if (conv->c == '%')
-		return (ft_conv_percent(conv));
-	if (conv->c == 'n')
-		return (ft_conv_n(res, ap));
-	return (0);
+	if (conv == 'd' || conv == 'i')
+		return (ft_join_nbr(print->buf, va_arg(*ap, int)));
+	if (conv == 'u')
+		return (ft_join_uint(print->buf, va_arg(*ap, unsigned int)));
+	if (conv == 'x')
+		return (ft_join_lower_hexa(print->buf, va_arg(*ap, unsigned int)));
+	if (conv == 'X')
+		return (ft_join_upper_hexa(print->buf, va_arg(*ap, unsigned int)));
+	return (NULL);
 }
 
-int	ft_put_decimal_conv(t_conv *conv, va_list *ap)
+char	*ft_conv_c(t_print	*print, va_list *ap)
 {
-	if (conv->length[0])
+	int	c;
+
+	c = va_arg(*ap, int);
+	if (!c)
 	{
-		if (conv->c == 'd' || conv->c == 'D' || conv->c == 'i')
-			return (ft_conv_d_len(conv, ap));
-		if (conv->c == 'u')
-			return (ft_conv_u_len(conv, ap));
-		if (conv->c == 'x' || conv->c == 'X')
-			return (ft_conv_x_len(conv, ap));
-		if (conv->c == 'o')
-			return (ft_conv_o_len(conv, ap));
+		print->null_char = true;
+		return (print->buf);
 	}
-	if (conv->c == 'p')
-		return (ft_conv_p(conv, ap));
-	if (conv->c == 'd' || conv->c == 'D' || conv->c == 'i')
-		return (ft_conv_d(conv, ap));
-	if (conv->c == 'u')
-		return (ft_conv_u(conv, ap));
-	if (conv->c == 'x' || conv->c == 'X')
-		return (ft_conv_x(conv, ap));
-	if (conv->c == 'o')
-		return (ft_conv_o(conv, ap));
-	return (0);
+	return (ft_join_char(print->buf, c));
 }
 
-int	ft_put_float_conv(t_conv *conv, va_list *ap)
+char	*ft_conv_s(char *buf, va_list *ap)
 {
-	if (conv->c == 'f' || conv->c == 'F')
-		return (ft_conv_f(conv, ap));
-	if (conv->c == 'e' || conv->c == 'E')
-		return (ft_conv_e(conv, ap));
-	if (conv->c == 'g' || conv->c == 'G')
-		return (ft_conv_g(conv, ap));
-	if (conv->c == 'a' || conv->c == 'A')
-		return (ft_conv_a(conv, ap));
-	return (0);
+	char	*s;
+
+	s = va_arg(*ap, char *);
+	if (!s)
+		s = "(null)";
+	return (ft_strjoin_free(buf, s));
 }
