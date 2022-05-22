@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/05/22 19:41:40 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/22 20:55:56 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,21 +35,12 @@ B_OBJS	= ${addprefix ${OBJDIR}/, ${notdir ${BONUS_SRCS:.c=.o}}}
 
 ifdef BONUS
 OBJS = $(B_OBJS)
-OBJS_TO_DEL	=	$(M_OBJS)
 else
 OBJS = $(M_OBJS)
-OBJS_TO_DEL	=	$(B_OBJS)
 endif
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-
-${MAKE_BEFORE}:
-ifdef BONUS
-	@if [ -e "$(NAME)" ] && [ "$(shell nm ./libftprintf.a | grep _bonus)" == "" ]; then rm -f $(NAME) ; fi;
-else
-	@if [ -e "$(NAME)" ] && [ "$(shell nm ./libftprintf.a | grep _bonus)" != "" ]; then rm -f $(NAME) ; fi;
-endif
 
 $(NAME): $(OBJS) $(LIBFT)
 	cp $(LIBFT) ./$(NAME)
