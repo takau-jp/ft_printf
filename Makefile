@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/05/22 20:55:56 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/23 19:51:47 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCDIR	= ./srcs
 BONUS_SRCDIR = ./bonus
 
 SRCS	= ft_printf.c
-SRCS	+= ${addprefix ${SRCDIR}/, ${addsuffix .c, ft_put_conv ft_join_utils ft_join_utils2 ft_abs ft_strchr ft_strlen ft_memcpy ft_memset}}
+SRCS	+= ${addprefix ${SRCDIR}/, ${addsuffix .c, ft_put_conv ft_join_utils ft_join_utils2}}
 BONUS_SRCS	= ft_printf_bonus.c
 BONUS_SRCS	+= ${addprefix ${BONUS_SRCDIR}/, ${addsuffix _bonus.c, ft_array_calc ft_conv_a ft_conv_a2 ft_conv_a3 ft_conv_c ft_conv_d ft_conv_d_len ft_conv_e \
 			 ft_conv_e2 ft_conv_e3 ft_conv_e4 ft_conv_o ft_conv_o_len ft_conv_p ft_conv_percent ft_conv_u ft_conv_u_len \
