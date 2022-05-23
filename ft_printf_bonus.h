@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:42:35 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/23 18:27:31 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <limits.h>
 # include <float.h>
 # include <stdint.h>
+
+# include "libft/includes/libft.h"
 
 # define CONV "cspdiuxX\%onfFeEgGaA"
 # define FLAGS "-+ #0"
@@ -131,21 +133,11 @@ void			array_double_hex(int8_t *n, int size);
 char			*ft_join_char(char *buf, char c);
 int				ft_print(char *itr, t_print *print, t_conv *conv, va_list *ap);
 bool			ft_print_buf(t_print *print, t_conv *conv, int len);
-unsigned int	ft_abs(int i);
 uintmax_t		ft_abs_intmax(intmax_t i);
-int				ft_atoi(const char *str);
-int				ft_isdigit(int c);
-int				ft_isspace(int c);
-unsigned long	ft_labs(long i);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			*ft_memset(void *buf, int ch, size_t n);
 int				ft_putchar(char c);
 size_t			ft_putstr(char *str);
 size_t			ft_putstrl(char *str, size_t len);
 int				ft_putnbr(int n);
-char			*ft_strchr(const char *s, int c);
-size_t			ft_strlen(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
-size_t			ft_strnlen(char *s, size_t n);
 
 #endif
