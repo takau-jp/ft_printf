@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:37 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 21:13:18 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/25 15:42:12 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,15 @@ char	*read_format(va_list *ap, char *itr, t_print *print)
 
 void	print_buf(t_print *print)
 {
-	size_t	check_res;
+	size_t	buf_len;
 
-	check_res = ft_strlen(print->buf);
-	if (check_res + print->null_char >= INT_MAX)
+	buf_len = ft_strlen(print->buf);
+	if (print->res + buf_len + print->null_char >= INT_MAX)
 	{
 		print->res = -1;
 		return ;
 	}
-	print->res += write(1, print->buf, check_res);
+	print->res += write(1, print->buf, buf_len);
 	if (print->null_char)
 	{
 		print->res += write(1, "\0", 1);

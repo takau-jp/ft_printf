@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:05:01 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 18:43:03 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/24 07:43:47 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	ft_print_buf(t_print *print, t_conv *conv, int len)
 		put_len = len;
 	else
 		put_len = conv->width;
-	if (buf_len + put_len >= INT_MAX)
+	if (print->res + buf_len + put_len >= INT_MAX)
 	{
 		print->res = -1;
 		return (false);
