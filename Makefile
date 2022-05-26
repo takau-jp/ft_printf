@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/05/23 19:51:47 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/25 16:41:49 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,11 +56,10 @@ ${OBJDIR}/%.o: ${SRCDIR}/%.c
 ${OBJDIR}/%.o: ${BONUS_SRCDIR}/%.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-all:
-	$(NAME)
-
 ${LIBFT}:
 	@make -C $(LIBFT_DIR)
+
+all: $(NAME)
 
 bonus:
 	@make BONUS=1
