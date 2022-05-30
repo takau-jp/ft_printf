@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 13:55:22 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 13:56:30 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:13 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 char	*ft_strjoin_free(char *s1, char *s2);
 

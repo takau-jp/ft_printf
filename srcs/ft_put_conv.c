@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 22:22:44 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 08:10:47 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:04:21 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 char	*ft_conv_c(t_print	*print, va_list *ap);
 char	*ft_conv_s(char *buf, va_list *ap);

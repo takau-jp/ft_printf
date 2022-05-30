@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:59:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 18:50:11 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:09 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_put_s(t_conv *conv, char *s, size_t len);
 

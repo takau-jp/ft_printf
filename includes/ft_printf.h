@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/23 18:25:50 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:25:15 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <stdbool.h>
 
-# include "libft/includes/libft.h"
+# include "libft.h"
 
 # define CONV "cspdiuxX\%"
 

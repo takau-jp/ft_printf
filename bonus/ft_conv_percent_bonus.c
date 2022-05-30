@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 09:33:15 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:55:48 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:03 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_conv_percent(t_print *print, t_conv *conv)
 {

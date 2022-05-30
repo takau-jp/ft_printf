@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:42:31 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:40 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:45 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 bool	frac_move_up(t_conv *conv, t_mydb *mydouble);
 

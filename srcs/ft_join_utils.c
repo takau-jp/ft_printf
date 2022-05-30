@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 10:26:21 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 21:11:43 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/30 14:36:33 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 char	*ft_join_char(char *buf, char c)
 {

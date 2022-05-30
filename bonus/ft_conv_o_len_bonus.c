@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 21:03:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:54:31 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:23:54 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_put_o_len(t_conv *conv, uintmax_t num, int len, int padding);
 int	ft_put_octal_len(uintmax_t num, int padding);

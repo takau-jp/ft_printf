@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:56:46 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:53:21 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:23:45 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	ft_conv_n_len1(int res, t_conv *conv, va_list *ap);
 void	ft_conv_n_len2(int res, t_conv *conv, va_list *ap);

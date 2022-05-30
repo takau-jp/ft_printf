@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:56:23 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:56:12 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:13 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_put_u(t_conv *conv, unsigned int num, int len, int padding);
 int	ft_put_uint(unsigned int num, int padding);

@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 00:14:52 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:04 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:31 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_put_width_space(t_conv *conv, size_t len)
 {

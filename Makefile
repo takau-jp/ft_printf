@@ -6,14 +6,11 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 18:49:53 by stanaka           #+#    #+#              #
-#    Updated: 2022/05/25 16:41:49 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/30 17:29:24 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libftprintf.a
-
-LIBFT_DIR	=	./libft
-LIBFT	=	$(LIBFT_DIR)/libft.a
 
 SRCDIR	= ./srcs
 BONUS_SRCDIR = ./bonus
@@ -41,20 +38,26 @@ endif
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
+INCLUDE = -I ./includes -I ./libft/includes
 
-$(NAME): $(OBJS) $(LIBFT)
+LIBFT_DIR	=	./libft
+LIBFT	=	$(LIBFT_DIR)/libft.a
+
+$(NAME): ${OBJDIR} $(OBJS) $(LIBFT)
 	cp $(LIBFT) ./$(NAME)
 	ar src $(NAME) $(OBJS)
 
+${OBJDIR}:
+	@-mkdir -p ${OBJDIR}
+
 ${OBJDIR}/%.o: %.c
-	-mkdir -p ${OBJDIR}
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 ${OBJDIR}/%.o: ${SRCDIR}/%.c
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 ${OBJDIR}/%.o: ${BONUS_SRCDIR}/%.c
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 ${LIBFT}:
 	@make -C $(LIBFT_DIR)
@@ -65,9 +68,10 @@ bonus:
 	@make BONUS=1
 
 .c.o :
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 clean:
+	@make -C $(LIBFT_DIR) clean
 	rm -rf $(M_OBJS) $(B_OBJS)
 
 fclean: clean

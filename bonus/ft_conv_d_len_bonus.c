@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:48:24 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:58:29 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:37 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 bool	ft_issigned_len(t_conv *conv, intmax_t d);
 int		ft_put_d_len(t_conv *conv, intmax_t d, int len, int padding);

@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:05:23 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:40:19 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:23:21 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_get_digits_db_ge(t_conv *conv, t_mydb mydouble);
 int	ft_get_digits_db_ge2(t_conv *conv, t_mydb mydb, int intlen, int len);

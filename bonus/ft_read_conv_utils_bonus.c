@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 01:31:38 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:36:16 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:26:02 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_atoi_width(const char *str)
 {

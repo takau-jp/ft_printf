@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/23 18:27:31 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:28:21 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <float.h>
 # include <stdint.h>
 
-# include "libft/includes/libft.h"
+# include "libft.h"
 
 # define CONV "cspdiuxX\%onfFeEgGaA"
 # define FLAGS "-+ #0"
@@ -81,7 +81,7 @@ int				ft_conv_x(t_print *print, t_conv *conv, va_list *ap);
 int				ft_conv_percent(t_print *print, t_conv *conv);
 int				ft_conv_o(t_print *print, t_conv *conv, va_list *ap);
 int				ft_conv_f(t_print *print, t_conv *conv, va_list *ap);
-int				ft_double_sp_case(t_conv *conv, double num);
+int				ft_double_sp_case(t_print *print, t_conv *conv, double num);
 void			get_binary_double(t_mydb *mydouble, double num);
 bool			convert_double(t_conv *conv, t_mydb *mydouble);
 void			convert_int(t_mydb *mydouble);

@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:16:22 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:50:53 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:34 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 bool	ft_issigned(t_conv *conv, int d);
 int		ft_put_num(int d, int padding);

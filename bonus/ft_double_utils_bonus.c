@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:34:37 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:45 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:42 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	ft_get_int_bin(t_mydb *mydb);
 void	ft_get_frac_bin(t_mydb *mydb);

@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 22:13:41 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:41:15 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:13 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	array_add(int8_t *a, int8_t *b, int size)
 {

@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:34:56 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:41:05 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:22 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	convert_int_hex(t_mydb *mydouble);
 void	convert_frac_hex(t_conv *conv, t_mydb *mydouble);

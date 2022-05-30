@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 22:22:44 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 18:52:01 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:26 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_put_etc_conv(t_print *print, t_conv *conv, va_list *ap);
 int	ft_put_decimal_conv(t_print *print, t_conv *conv, va_list *ap);

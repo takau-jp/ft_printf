@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:38:51 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:51:41 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:23:11 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int		ft_get_exp_g(double num);
 void	ft_prec_minus_g(t_conv *conv, int num);
@@ -27,7 +27,7 @@ int	ft_conv_g(t_print *print, t_conv *conv, va_list *ap)
 	if (conv->has_prec == true && conv->prec == 0)
 		conv->prec = 1;
 	num = va_arg(*ap, double);
-	res = ft_double_sp_case(conv, num);
+	res = ft_double_sp_case(print, conv, num);
 	if (res)
 		return (res);
 	get_binary_double(&mydouble, num);

@@ -6,7 +6,7 @@
 #    By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 15:48:11 by macbook_air       #+#    #+#              #
-#    Updated: 2021/12/16 21:40:09 by stanaka          ###   ########.fr        #
+#    Updated: 2022/05/30 17:27:15 by stanaka          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,17 @@ B_DEPS	= ${addprefix ${OBJDIR}/, ${notdir ${B_SRCS:.c=.d}}}
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -MMD -MP
-INCLUDE   = -I./includes
+INCLUDE   = -I ./includes
 
 RM = rm -f
 
-${NAME} : ${OBJS}
+${NAME} : ${OBJDIR} ${OBJS}
 	ar src $(NAME) $(OBJS)
 
-${OBJDIR}/%.o: ${SRCDIR}/ctype/%.c
+${OBJDIR}:
 	-mkdir -p ${OBJDIR}
+
+${OBJDIR}/%.o: ${SRCDIR}/ctype/%.c
 	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 ${OBJDIR}/%.o: ${SRCDIR}/stdio/%.c

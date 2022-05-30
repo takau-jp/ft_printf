@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 12:53:34 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:25 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:03 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	array_add_hex(int8_t *a, int8_t *b, int size)
 {

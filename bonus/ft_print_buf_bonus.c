@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:05:01 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/24 07:43:47 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:21 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 bool	ft_print_buf(t_print *print, t_conv *conv, int len)
 {

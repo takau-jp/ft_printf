@@ -6,13 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:43:18 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:35 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:52 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
-int	put_mydouble_sp_case(t_conv *conv, t_mydb *mydouble, int len);
+int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydouble, int len);
 int	print_mydouble_sp_case(t_mydb *mydouble);
 
 void	convert_double_simple(t_mydb *mydouble)
@@ -23,21 +23,21 @@ void	convert_double_simple(t_mydb *mydouble)
 	convert_frac(mydouble);
 }
 
-int	ft_double_sp_case(t_conv *conv, double num)
+int	ft_double_sp_case(t_print *print, t_conv *conv, double num)
 {
 	t_mydb	mydouble;
 
 	get_binary_double(&mydouble, num);
 	if (mydouble.exp == 2047 && mydouble.frac != 0)
-		return (put_mydouble_sp_case(conv, &mydouble, 3));
+		return (put_mydouble_sp_case(print, conv, &mydouble, 3));
 	else if (mydouble.sign == 0 && mydouble.exp == 2047)
-		return (put_mydouble_sp_case(conv, &mydouble, 3));
+		return (put_mydouble_sp_case(print, conv, &mydouble, 3));
 	else if (mydouble.sign == 1 && mydouble.exp == 2047)
-		return (put_mydouble_sp_case(conv, &mydouble, 4));
+		return (put_mydouble_sp_case(print, conv, &mydouble, 4));
 	return (0);
 }
 
-int	put_mydouble_sp_case(t_conv *conv, t_mydb *mydouble, int len)
+int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydouble, int len)
 {
 	int	res;
 
@@ -47,6 +47,8 @@ int	put_mydouble_sp_case(t_conv *conv, t_mydb *mydouble, int len)
 		if (mydouble->sign == 0 && conv->sign_flags)
 			len++;
 	}
+	if (!ft_print_buf(print, conv, len))
+		return (-1);
 	if (conv->space_flags != '-')
 		res += ft_put_width_space(conv, len);
 	if (!(mydouble->exp == 2047 && mydouble->frac != 0))

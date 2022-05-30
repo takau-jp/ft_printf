@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 16:35:40 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/25 15:24:11 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:25:16 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	buf_init(t_print *print);
 char	*read_format(char *itr, t_print *print, t_conv *conv, va_list *ap);

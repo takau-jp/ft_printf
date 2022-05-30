@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:59:35 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:37:29 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:24:59 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	ft_get_digits_long(long n, int base)
 {

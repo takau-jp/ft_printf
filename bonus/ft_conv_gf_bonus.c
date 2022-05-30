@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 19:07:39 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:52:33 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:23:32 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 void	ft_prec_gf(t_conv *conv, t_mydb *mydouble);
 void	ft_prec_gf2(t_conv *conv, t_mydb *mydouble);

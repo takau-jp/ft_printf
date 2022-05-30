@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 10:26:30 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 19:20:14 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:07:34 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 char	*ft_join_nbr(char *buf, int n)
 {

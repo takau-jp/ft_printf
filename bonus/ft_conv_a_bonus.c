@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:38:51 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/22 16:50:05 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:18 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int		adjust_num_a(double	*num);
 void	ft_prec_a(t_conv *conv, t_mydb *mydouble);
@@ -28,7 +28,7 @@ int	ft_conv_a(t_print *print, t_conv *conv, va_list *ap)
 	if (conv->has_prec == false)
 		conv->prec = 8;
 	num = va_arg(*ap, double);
-	res = ft_double_sp_case(conv, num);
+	res = ft_double_sp_case(print, conv, num);
 	if (res)
 		return (res);
 	exponent = adjust_num_a(&num);

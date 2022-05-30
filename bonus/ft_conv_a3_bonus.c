@@ -6,11 +6,11 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:43:38 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/13 01:41:03 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:22:26 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_bonus.h"
+#include "ft_printf_bonus.h"
 
 int	print_mydouble_a2(t_conv *conv, int exponent);
 int	ft_put_hex(t_conv *conv, int num);
