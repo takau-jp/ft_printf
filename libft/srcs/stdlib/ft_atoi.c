@@ -6,13 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 09:53:20 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/05 00:51:54 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/31 12:02:25 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool				is_overflow_long(long *num, int sign, char c);
+static bool	is_overflow_long(long *num, int sign, char c);
 
 int	ft_atoi(const char *str)
 {

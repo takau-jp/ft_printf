@@ -6,13 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:43:18 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/29 17:24:52 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/31 06:28:26 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydouble, int len);
+int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydb, int len);
 int	print_mydouble_sp_case(t_mydb *mydouble);
 
 void	convert_double_simple(t_mydb *mydouble)
@@ -37,28 +37,28 @@ int	ft_double_sp_case(t_print *print, t_conv *conv, double num)
 	return (0);
 }
 
-int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydouble, int len)
+int	put_mydouble_sp_case(t_print *print, t_conv *conv, t_mydb *mydb, int len)
 {
 	int	res;
 
 	res = 0;
-	if (!(mydouble->exp == 2047 && mydouble->frac != 0))
+	if (!(mydb->exp == 2047 && mydb->frac != 0))
 	{
-		if (mydouble->sign == 0 && conv->sign_flags)
+		if (mydb->sign == 0 && conv->sign_flags)
 			len++;
 	}
 	if (!ft_print_buf(print, conv, len))
 		return (-1);
 	if (conv->space_flags != '-')
 		res += ft_put_width_space(conv, len);
-	if (!(mydouble->exp == 2047 && mydouble->frac != 0))
+	if (!(mydb->exp == 2047 && mydb->frac != 0))
 	{
-		if (mydouble->sign == 0 && conv->sign_flags == '+')
+		if (mydb->sign == 0 && conv->sign_flags == '+')
 			res += ft_putchar('+');
-		if (mydouble->sign == 0 && conv->sign_flags == ' ')
+		if (mydb->sign == 0 && conv->sign_flags == ' ')
 			res += ft_putchar(' ');
 	}
-	res += print_mydouble_sp_case(mydouble);
+	res += print_mydouble_sp_case(mydb);
 	if (conv->space_flags == '-')
 		res += ft_put_width_space(conv, len);
 	return (res);

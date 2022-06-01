@@ -6,13 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 23:10:38 by macbook_air       #+#    #+#             */
-/*   Updated: 2021/12/04 23:20:28 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/05/31 12:02:38 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char			*get_ascii_num(char *ascii_num, int num);
+static char	*get_ascii_num(char *ascii_num, int num);
 
 char	*ft_itoa(int n)
 {
