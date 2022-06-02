@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/30 17:28:21 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:19:49 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <limits.h>
 # include <float.h>
 # include <stdint.h>
+# include <inttypes.h>
 
 # include "libft.h"
 
@@ -120,8 +121,7 @@ int				ft_put_width_space(t_conv *conv, size_t len);
 int				ft_put_width_zero(t_conv *conv, size_t len);
 int				ft_get_digits(int n, int base);
 int				ft_get_digits_uint(unsigned int n, int base);
-int				ft_get_digits_long(long n, int base);
-int				ft_get_digits_ulong(unsigned long n, int base);
+int				ft_get_digits_uintptr(uintptr_t n, int base);
 int				ft_get_digits_intmax(intmax_t n, int base);
 int				ft_get_digits_uintmax(uintmax_t n, int base);
 void			array_add(int8_t *a, int8_t *b, int size);

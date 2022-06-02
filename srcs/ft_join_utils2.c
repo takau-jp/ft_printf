@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 10:26:30 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/29 17:07:34 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:10:59 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_join_uint(char *buf, unsigned int num)
 	return (ft_join_char(buf, "0123456789"[num % 10]));
 }
 
-char	*ft_join_address(char *buf, unsigned long num)
+char	*ft_join_address(char *buf, uintptr_t num)
 {
 	if (num >= 16)
 	{

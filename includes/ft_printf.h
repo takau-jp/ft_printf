@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:51:16 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/30 17:25:15 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:11:16 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <inttypes.h>
 
 # include "libft.h"
 
@@ -32,7 +33,7 @@ typedef struct s_print
 
 int				ft_printf(const char *format, ...);
 char			*ft_put_conversion(t_print *print, char conv, va_list *ap);
-char			*ft_join_address(char *buf, unsigned long num);
+char			*ft_join_address(char *buf, uintptr_t num);
 char			*ft_join_uint(char *buf, unsigned int num);
 char			*ft_join_lower_hexa(char *buf, unsigned int num);
 char			*ft_join_upper_hexa(char *buf, unsigned int num);

@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 22:22:44 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/29 17:04:21 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:10:33 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_put_conversion(t_print	*print, char conv, va_list *ap)
 		print->buf = ft_strjoin_free(print->buf, "0x");
 		if (!print->buf)
 			return (NULL);
-		return (ft_join_address(print->buf, va_arg(*ap, unsigned long)));
+		return (ft_join_address(print->buf, va_arg(*ap, uintptr_t)));
 	}
 	if (conv == 'd' || conv == 'i')
 		return (ft_join_nbr(print->buf, va_arg(*ap, int)));

@@ -6,30 +6,13 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:59:35 by stanaka           #+#    #+#             */
-/*   Updated: 2022/05/29 17:24:59 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/06/02 21:19:40 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	ft_get_digits_long(long n, int base)
-{
-	int				digit;
-	unsigned long	num;
-
-	digit = 0;
-	num = ft_labs(n);
-	if (n <= 0)
-		digit++;
-	while (num > 0)
-	{
-		num /= base;
-		digit++;
-	}
-	return (digit);
-}
-
-int	ft_get_digits_ulong(unsigned long n, int base)
+int	ft_get_digits_uintptr(uintptr_t n, int base)
 {
 	int	digit;
 
